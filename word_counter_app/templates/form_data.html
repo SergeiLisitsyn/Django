@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<h2>Form Data:</h2>
+<h4>Form Data Field_Label - Field representation:</h4>
+<ul>
+        {% for field in form %}
+              <div class="fieldWrapper">
+                  {{ field.errors }}
+                  {{ field.label_tag }} {{ field }}
+    </div>
+    {% endfor %}
+</ul>
+{% if data_dict %}
+<h4>Form Data Dictionary representation:</h4>
+<ul>
+    {% for field, value in data_dict.items %}
+     <li>{{ field }}: {{ value }}</li>
+     {% endfor %}
+</ul>
+{% endif %}
+<h4>Form Data Field_Label - Field_Value representation:</h4>
+<ul>
+        {% for field in form %}
+              <div class="fieldWrapper">
+                  {{ field.errors }}
+                  {{ field.label_tag }} {{ field.value }}
+    </div>
+    {% endfor %}
+</ul>
+
+{% endblock %}

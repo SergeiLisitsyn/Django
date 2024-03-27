@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<form method="POST" action="{% url 'data' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+     <br>
+             <input type="submit" value="SubmitFormData">
+</form>
+
+{% endblock %}
